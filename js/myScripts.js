@@ -23,7 +23,7 @@ function displayPosition(pos) {
     var mylong = pos.coords.longitude;
     var thediv = document.getElementById('locationinfo');
 
-    thediv.innerHTML = '<p>Your longitude is :' +
+    thediv.innerHTML = '<p>Your longitude is: ' +
         mylong + ' and your latitide is ' + mylat + '</p>';
 
     //Load Google Map
@@ -77,26 +77,8 @@ function errorFunction(pos) {
     alert('Error!');
 }
 
-
 function changeLocalSetorageLatLang(lat,long){
     localStorage.setItem('prevLong',long);
     localStorage.setItem('prevLat',lat);
 }
 
-$(function(){
-    $('#title').html('Entrega 5 SWCM');
-    $('#footer').html('Vaishali Mirchandani');
-    $('#text').html ('<p> Diseñar una página que tenga ' +
-        '<ul><li>Un titulo</li>' +
-        '<li>Una explicación de la página</li>' +
-        '<li>Un mash-up de google maps dentro de un iFrame</li></ul> </p>' +
-        '<p>El mash-up será una modificación del segundo ejercicio de geolocalización' +
-        '<ul><li>Que muestre en Google Maps 2 posiciones: la posición actual y la posición de la consulta anterior</li>' +
-        '<li>Además mostrará las coordenadas en cajetines de un formulario</li>'+
-        '<li>También mostrara la distancia entre ambos puntos</li>'+
-        '</ul></p>'+
-        '<p>El diseño de la página debe</p>'+
-        '<ul><li>Utilizar jQuery para todos los accesos y modificaciones de DOM</li>' +
-        '<li>Ser responsive y adaptarse a pantalla grande, smartphone y tableta</li></ul></p>');
-
-});

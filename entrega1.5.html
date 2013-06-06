@@ -6,19 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="css/myCss.css" rel="stylesheet">
 
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
 
-    <script type="text/javascript" src="js/myScripts.js"></script>
+    <script type="text/javascript">
+
+
+        $(function(){
+
+            $('#title').html('Entrega 5 SWCM');
+            $('#footer').html('Vaishali Mirchandani');
+            $('#text').html ('<p> Diseñar una página que tenga ' +
+                    '<ul><li>Un titulo</li>' +
+                    '<li>Una explicación de la página</li>' +
+                    '<li>Un mash-up de google maps dentro de un iFrame</li></ul> </p>' +
+                    '<p>El mash-up será una modificación del segundo ejercicio de geolocalización' +
+                    '<ul><li>Que muestre en Google Maps 2 posiciones: la posición actual y la posición de la consulta anterior</li>' +
+                    '<li>Además mostrará las coordenadas en cajetines de un formulario</li>'+
+                    '<li>También mostrara la distancia entre ambos puntos</li>'+
+                    '</ul></p>'+
+                    '<p>El diseño de la página debe</p>'+
+                    '<ul><li>Utilizar jQuery para todos los accesos y modificaciones de DOM</li>' +
+                    '<li>Ser responsive y adaptarse a pantalla grande, smartphone y tableta</li></ul></p>');
+
+            $('#myIframe').height(($('#right-content').height())-35)
+        });
+    </script>
 </head>
 
 <body>
 
-<div class="container-fluid">
+<div  class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
             <header>
@@ -32,24 +54,11 @@
     <div class="row-fluid top-buffer">
         <div class="span8">
             <h3  id="map_header"></h3>
-            <div id="locationinfo"></div>
-            <br/>
-            <div id="map_canvas"></div>
-            <form class="form-horizontal">
-                <fieldset>
-                    <legend id="form_legend"></legend>
-                    <label id="lat_label" for="prevLat"> </label>
-                    <input id="prevLat" name="prevLat" type="text"/>
-                    <label id="long_label"for="prevLong"> </label>
-                    <input id="prevLong" name="prevLong" type="text"/>
-                    <button id="change_button" type="button" class="btn btn-danger"
-                            onclick="changeLocalSetorageLatLang(this.form.prevLat.value,this.form.prevLong.value);">
-                    </button>
-                </fieldset>
-            </form>
-            <div id="distance"></div>
+
+            <iframe id="myIframe" src="map.html"></iframe>
+
         </div>
-        <div class="span4">
+        <div id="right-content" class="span4">
 
             <div class="well">
                 <div id="text"></div>
